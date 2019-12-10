@@ -1,4 +1,5 @@
 import React from 'react';
+import fakeFetch from '../../../users';
 
 class LoginForm extends React.Component {
 
@@ -23,9 +24,34 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit(e) {
-        alert('Your data ' + this.state.email + this.state.password);
+        // alert('Your data ' + this.state.email + this.state.password);
+        this.checkUser();
         e.preventDefault();
     }
+
+    checkUser() {
+
+        fakeFetch()     
+        .then( users => {
+         
+          for ( let user of users )
+          {
+            let { email, password } = user;
+            
+            if ( email === this.state.email && password === this.state.password )
+            {
+              console.log( 'found!' );
+              return;
+            }
+          }
+          
+          console.log( 'wrong data' );
+          
+        })
+        .catch(error => console.log( error ) );
+      
+      }
+
 
     render() {
         return (
@@ -33,7 +59,7 @@ class LoginForm extends React.Component {
                 <div className="form-field">
                     <label>
                         <p className="form-field__label">email:</p>
-                        <input type="email"
+                        <input type="text"
                                name="email"
                                placeholder="Email"
                                value={ this.state.value } 

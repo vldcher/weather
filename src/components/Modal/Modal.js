@@ -7,9 +7,9 @@ class Modal extends React.Component {
     render() {
         return(
             <div className='modal'>
-            <h1>Modal</h1>
-            <LoginForm />
-        </div>
+                <h1>Modal</h1>
+                <LoginForm />
+            </div>
         );
     }
 }

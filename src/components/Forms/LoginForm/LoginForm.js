@@ -31,6 +31,7 @@ class LoginForm extends React.Component {
 
     checkUser() {
 
+
         fakeFetch()     
         .then( users => {
          
@@ -40,12 +41,12 @@ class LoginForm extends React.Component {
             
             if ( email === this.state.email && password === this.state.password )
             {
-              console.log( 'found!' );
-              return;
+
+              return true;
             }
           }
           
-          console.log( 'wrong data' );
+          return false;
           
         })
         .catch(error => console.log( error ) );

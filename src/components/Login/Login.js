@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "../../base";
 import { AuthContext } from "../../Auth";
+import './Login.css';
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -27,14 +28,14 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div>
+    <div className="login">
       <h1>Log in</h1>
-      <form onSubmit={handleLogin}>
-        <label>
+      <form onSubmit={handleLogin} className="form">
+        <label className="form__row">
           Email
           <input name="email" type="email" placeholder="Email" />
         </label>
-        <label>
+        <label className="form__row">
           Password
           <input name="password" type="password" placeholder="Password" />
         </label>

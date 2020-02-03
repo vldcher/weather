@@ -2,7 +2,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "../Home/Home";
+import Home from "../Pannel/Pannel";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import { AuthProvider } from "../../Auth";
@@ -12,10 +12,10 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div>
+        <div className="app">
           <PrivateRoute exact path="/" component={ Home } />
-          <Route exact path="/login" component={ Login } />
           <Route exact path="/signup" component={ SignUp } />
+          <Route exact path="/login" component={ Login } />
         </div>
       </Router>
     </AuthProvider>

@@ -2,7 +2,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "../Pannel/Pannel";
+import Pannel from "../Pannel/Pannel";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import { AuthProvider } from "../../Auth";
@@ -13,7 +13,7 @@ const App = () => {
     <AuthProvider>
       <Router>
         <div className="app">
-          <PrivateRoute exact path="/" component={ Home } />
+          <PrivateRoute exact path="/" component={ Pannel } />
           <Route exact path="/signup" component={ SignUp } />
           <Route exact path="/login" component={ Login } />
         </div>

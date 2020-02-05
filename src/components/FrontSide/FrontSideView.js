@@ -1,6 +1,7 @@
 import React from "react";
 import "./card.css";
 import optionsImage from "../../options.svg";
+import WeatherIcon from "./WeatherIcon";
 
 export default ({
   date,
@@ -8,26 +9,27 @@ export default ({
   temperature,
   summary,
   apparentTemperature,
-  currentCityName
+  currentCityName,
+  onClick
 }) => {
   return (
-    <div className="card is-clear-day">
+    <div className={`card is-${icon}`}>
       <div className="card-row">
         <div className="card-day">{date.format("dddd")}</div>
         <div className="card-day">{date.format("MMM Do")}</div>
-      </div>z
-      <img src="/icons/clear-day.svg" alt="clear-day" width="120px" />
+      </div>
+      <WeatherIcon icon={icon} />
       <div className="card-row">
         <div className="card-temperature">
-          {`${temperature}°`}
-          <span className="small">/ {apparentTemperature}°</span>
+          {`${parseInt(temperature, 10)}°`}
+          <span className="small">/ {parseInt(apparentTemperature)}°</span>
         </div>
         <div className="card-weather">{summary}</div>
       </div>
       <div className="card-line" />
       <div className="card-row">
         <div className="card-city">{currentCityName}</div>
-        <button className="card-options">
+        <button className="card-options" onClick={onClick}>
           <img src={optionsImage} width={32} alt="options" />
         </button>
       </div>

@@ -4,6 +4,9 @@ import moment from "moment";
 import { getWeatherForLocation } from "../../api";
 
 class FrontSide extends Component {
+
+  // TODO: rewrite into Hooks
+  
   state = { 
     currentWeather: null,
     prevCityId: null

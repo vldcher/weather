@@ -1,21 +1,22 @@
 import React from "react";
 
-export default class CityItem extends React.Component {
+function CityItem(props) {
 
-    onClick = () => {
-        const { onSelect, city } = this.props;
+    function onClick() {
+        const { onSelect, city } = props;
         onSelect(city);
     };
 
-    render() {
-        const { city, isSelected } = this.props;
 
-        return (
-            <li
-                onClick={this.onClick}
-                className={`list-item ${isSelected ? "is-selected" : ""}`}>
-                {city.title}
-            </li>
-        );
-    }
+    const { city, isSelected } = props;
+
+    return (
+        <li
+            onClick={onClick}
+            className={`list-item ${isSelected ? "is-selected" : ""}`}>
+            {city.title}
+        </li>
+    );
 }
+
+export default CityItem;
